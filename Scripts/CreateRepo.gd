@@ -1,5 +1,7 @@
 extends Control
 
+signal created_repo(path: String)
+
 @onready var path: LineEdit = $VBoxContainer/HBoxContainer/Path
 @onready var file_dialog: FileDialog = $VBoxContainer/HBoxContainer/FileDialog
 @onready var project_name: LineEdit = $VBoxContainer/ProjectName
@@ -25,6 +27,7 @@ func _on_create_button_button_down() -> void:
 	if dir != "":
 		if create_repo(dir):
 			message.text = "Created repo"
+			created_repo.emit(dir)
 		else:
 			message.text = "Could not create repo"
 		

@@ -1,3 +1,7 @@
 extends Control
+class_name RepoView
 
-var path_to_repo_root: String
+@onready var repo_path: Label = $RepoPath
+
+func set_repo_path(path: String):
+	repo_path.text = path

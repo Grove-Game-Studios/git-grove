@@ -1,4 +1,7 @@
 extends Control
+class_name OpenRepo
+
+signal open_repo(path: String)
 
 @onready var path: LineEdit = $VBoxContainer/HBoxContainer/Path
 @onready var file_dialog: FileDialog = $VBoxContainer/HBoxContainer/FileDialog
@@ -19,6 +22,7 @@ func _on_file_dialog_dir_selected(dir: String) -> void:
 func _on_open_button_button_down() -> void:
 	if (is_git_repo(path.text)):
 		message.text = "It is a git repo"
+		open_repo.emit(path.text)
 	else:
 		message.text = "It is not a git repo"
 	

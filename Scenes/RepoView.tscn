@@ -60,15 +60,12 @@ layout_mode = 2
 size_flags_horizontal = 4
 text = "Commit history"
 
-[node name="ScrollContainer" type="ScrollContainer" parent="VBoxContainer/HBoxContainer/Panel2/VBoxContainer"]
-clip_contents = false
-layout_mode = 2
-size_flags_vertical = 3
-
-[node name="ListOfCommits" type="VBoxContainer" parent="VBoxContainer/HBoxContainer/Panel2/VBoxContainer/ScrollContainer"]
+[node name="CommitHistory" type="Tree" parent="VBoxContainer/HBoxContainer/Panel2/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+columns = 3
+column_titles_visible = true
 
 [node name="Panel3" type="Panel" parent="VBoxContainer/HBoxContainer"]
 layout_mode = 2

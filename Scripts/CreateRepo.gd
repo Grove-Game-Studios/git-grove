@@ -25,11 +25,10 @@ func _on_create_button_button_down() -> void:
 		
 	var dir = folder_is_empty()
 	if dir != "":
-		if create_repo(dir):
-			message.text = "Created repo"
-			created_repo.emit(dir)
-		else:
-			message.text = "Could not create repo"
+		# TODO: Error handling needed
+		create_repo(dir)
+		message.text = "Created repo"
+		created_repo.emit(dir)
 		
 func folder_is_empty() -> String:
 	var parent_dir = DirAccess.open(path.text)
@@ -47,5 +46,5 @@ func folder_is_empty() -> String:
 		
 	return parent_dir.get_current_dir()
 	
-func create_repo(repo_path: String) -> bool:
+func create_repo(repo_path: String) -> Array[String]:
 	return GitService.execute_command(repo_path, "init", [])
